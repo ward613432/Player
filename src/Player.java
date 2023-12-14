@@ -80,6 +80,7 @@ public class Player {
 
     public void attack(Player player, int damage) {
         player.setHp(player.getHp() - damage);
+        this.setHp(this.getHp() + (damage/2));
     }
 
     // Other
