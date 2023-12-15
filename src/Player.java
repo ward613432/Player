@@ -1,9 +1,11 @@
 public class Player {
+    //North, 1; South, 2; Up, 3; Down, 4; East, 5; West, 6.
+    // x: north and south || y: up and down || z: east and west
     private static int numPlayers = 1;
     private int x;
     private int y;
     private int z;
-    private int direction; //North, 1; South, 2; Up, 3; Down, 4; East, 5; West, 6.
+    private int direction;
     private int hp;
     private String name;
 
@@ -68,6 +70,19 @@ public class Player {
         this.direction = Math.max(1, Math.min(6, direction));
     }
 
+    void move(int direction, int units) {
+        // if number is even, change units to negative because its opposite direction
+        if (direction % 2 == 0) { units = -units; }
+
+        if (direction == 1 || direction == 2) {
+            this.x += units;
+        } else if (direction == 3 || direction == 4) {
+            this.y += units;
+        } else if (direction == 5 || direction == 6) {
+            this.z += units;
+        }
+    }
+
     public void teleport(Player player) {
         this.teleport(player.getX(), player.getY(), player.getZ());
     }
@@ -89,7 +104,6 @@ public class Player {
     }
 
     double getDistance(int x, int y, int z) {
-        // group1 group2 group3
         double groupOne = Math.pow((x - this.x), 2);
         double groupTwo = Math.pow((y - this.y), 2);
         double groupThree = Math.pow(z - this.z, 2);
