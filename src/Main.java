@@ -52,7 +52,7 @@ public class Main {
             do {
 
                 if (players[turn-1].getHp() <= 0) { continue; } // skip their turn if they are dead
-                int move = InputHelper.getRangedInt(scanner, "Choose your move: Attack (1) | Move (2) | Teleport (3) | Skip (4)", 1, 3);
+                int move = InputHelper.getRangedInt(scanner, "Choose your move: Attack (1) | Move (2) | Teleport (3) | Skip (4)", 1, 4);
 
                 if (move == 1) {
                     // attack code
